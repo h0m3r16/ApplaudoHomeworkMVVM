@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.applaudostudios.applaudohomework.ui.viewmodel.TeamListViewModel"/>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="@{viewModel.progressVisibility}"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/team_list"
+            android:name="com.applaudostudios.applaudohomework.TeamListFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="LinearLayoutManager"
+            tools:context="com.applaudostudios.applaudohomework.ui.activity.TeamListActivity"
+            tools:listitem="@layout/item_team_list"/>
+
+    </RelativeLayout>
+</layout>

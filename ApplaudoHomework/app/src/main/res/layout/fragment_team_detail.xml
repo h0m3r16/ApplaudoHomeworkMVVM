@@ -1,0 +1,72 @@
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.applaudostudios.applaudohomework.ui.fragment.TeamDetailFragment">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.applaudostudios.applaudohomework.ui.viewmodel.TeamDetailViewModel"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <VideoView
+            android:id="@+id/team_detail_video_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/team_detail_video_height"
+            android:layout_gravity="center_horizontal"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/team_detail_data"
+            android:onClick="@{viewModel.onTeamClick}">
+
+
+            <ImageView
+                android:id="@+id/team_detail_image"
+                android:layout_width="@dimen/team_detail_image_width"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:logoImage="@{viewModel.logoImageUrl}"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp"
+                android:layout_toRightOf="@+id/team_detail_image"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:text="@{viewModel.title}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:ellipsize="end"
+                    android:lines="4"
+                    android:text="@{viewModel.description}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/team_detail_map"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.applaudostudios.applaudohomework.ui.viewmodel.TeamListViewModel"/>
+
+    </data>
+
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context="com.applaudostudios.applaudohomework.ui.activity.TeamListActivity">
+
+        <include
+            android:id="@+id/toolbar_container"
+            layout="@layout/inc_toolbar"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar_container">
+
+            <include
+                android:id="@+id/team_list_content"
+                layout="@layout/team_list"
+                bind:viewModel="@{viewModel}"/>
+        </FrameLayout>
+
+    </RelativeLayout>
+</layout>
